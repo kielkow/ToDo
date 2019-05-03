@@ -50,11 +50,4 @@ public class PilhaDinamica implements TADPilha {
         }
         throw new EmptyStackException();
     }
-    
-    public void isFull(){
-        if(quantidade == 5){
-            JOptionPane.showMessageDialog(null, "Parabens! Voce completou suas atividades diarias! :)");
-        }
-    }
-
 }
