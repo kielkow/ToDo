@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package lista;
 
 import javax.swing.JOptionPane;
@@ -22,7 +18,7 @@ public class Interface extends javax.swing.JFrame {
 
     public Interface() {
         initComponents();
-        
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -301,11 +297,13 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void btnObjetivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObjetivosActionPerformed
+        new Objetivos().setVisible(true);
         for (int j = 0; j < atividade.size(); j++) {
             if (atividade.get(j).completado == false) {
                 atividade.print(j);
             }
         }
+        dispose();
     }//GEN-LAST:event_btnObjetivosActionPerformed
 
     private void btnCompletadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletadosActionPerformed

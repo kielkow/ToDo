@@ -1,7 +1,6 @@
 package lista;
    
 import java.util.EmptyStackException;
-import javax.swing.JOptionPane;
 
 public class PilhaDinamica implements TADPilha {
 
