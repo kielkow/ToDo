@@ -13,7 +13,6 @@ public class Interface extends javax.swing.JFrame {
      * Creates new form Interface
      */
     ListaDinamica atividade = new ListaDinamica();
-    PilhaDinamica limite = new PilhaDinamica();
     int i = 0;
 
     public Interface() {
@@ -318,6 +317,7 @@ public class Interface extends javax.swing.JFrame {
 
     private void btnLimiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimiteActionPerformed
         int limites = Integer.parseInt(JOptionPane.showInputDialog("Quantas atividades deseja fazer hoje?"));
+        PilhaDinamica limite = new PilhaDinamica();  
     }//GEN-LAST:event_btnLimiteActionPerformed
 
     /**
