@@ -307,11 +307,13 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_btnObjetivosActionPerformed
 
     private void btnCompletadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletadosActionPerformed
+        new Completados().setVisible(true);
         for (int j = 0; j < atividade.size(); j++) {
             if (atividade.get(j).completado == true) {
                 atividade.print(j);
             }
         }
+        dispose();
     }//GEN-LAST:event_btnCompletadosActionPerformed
 
     private void btnLimiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimiteActionPerformed
