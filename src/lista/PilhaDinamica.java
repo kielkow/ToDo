@@ -2,10 +2,10 @@ package lista;
    
 import java.util.EmptyStackException;
 
-public class PilhaDinamica implements TADPilha {
+public class PilhaDinamica implements TADPilhaDinamica {
 
-    private Node topo;
-    private int quantidade;
+    public Node topo;
+    public int quantidade;
 
     public PilhaDinamica() {
         topo = null;
@@ -23,8 +23,8 @@ public class PilhaDinamica implements TADPilha {
     }
 
     @Override
-    public void push(String data, String descricao,  String nome, int tempo, String lugar) {
-        Node novo = new Node(data, descricao, nome, tempo, lugar);
+    public void push(String data, String nome, int tempo, String lugar) {
+        Node novo = new Node(data, nome, tempo, lugar);
         novo.proximo = topo;
         topo = novo;
         quantidade++;

@@ -2,8 +2,8 @@ package lista;
 
 public class ListaDinamica implements TADLista {
 
-    private Node inicio, fim;
-    private int quantidade;
+    public Node inicio, fim;
+    public int quantidade;
 
     public ListaDinamica() {
         quantidade = 0;
@@ -21,9 +21,9 @@ public class ListaDinamica implements TADLista {
     }
 
     @Override
-    public void add(String data, String descricao,  String nome, int tempo, String lugar, int indice) throws IndexOutOfBoundsException {
+    public void add(String data, String nome, int tempo, String lugar, int indice) throws IndexOutOfBoundsException {
         if (indice >= 0 && indice <= quantidade) {
-            Node novo = new Node(data, descricao, nome, tempo, lugar);
+            Node novo = new Node(data, nome, tempo, lugar);
             if (indice == 0) {
                 novo.proximo = inicio;
                 inicio = novo;
@@ -77,20 +77,18 @@ public class ListaDinamica implements TADLista {
     }
 
     @Override
-    public Node set(String data, String descricao,  String nome, int tempo, String lugar, int indice) throws IndexOutOfBoundsException {
+    public Node set(String data,  String nome, int tempo, String lugar, int indice) throws IndexOutOfBoundsException {
         if (indice >= 0 && indice <= quantidade) {
             Node aux = inicio;
             for (int i = 0; i < indice; i++) {
                 aux = aux.proximo;
             }
             String retornoData = aux.data;
-            String retornoDescricao = aux.descricao;
             String retornoNome = aux.nome;
             int retornoTempo = aux.tempo;
             String retornoLugar = aux.lugar;
 
             aux.data = data;
-            aux.descricao = descricao;
             aux.nome = nome;
             aux.tempo = tempo;
             aux.lugar = lugar;
@@ -114,7 +112,6 @@ public class ListaDinamica implements TADLista {
     public void print(int indice) {
         try {
             System.out.println(this.get(indice).data);
-            System.out.println(this.get(indice).descricao);
             System.out.println(this.get(indice).nome);
             System.out.println(this.get(indice).tempo);
             System.out.println(this.get(indice).lugar);
