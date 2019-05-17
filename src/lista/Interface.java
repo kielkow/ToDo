@@ -424,12 +424,11 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLugarActionPerformed
 
     private void btnCompletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletarActionPerformed
-        for (int j = 0; j <= tableObj.getRowCount(); j++) {
+        for (int j = 0; j < tableObj.getRowCount(); j++) {
             if (tableObj.isRowSelected(j)) {
                 DefaultTableModel dt;
                 dt = (DefaultTableModel) tableComp.getModel();
-                dt.addRow(new Object[]{atividade.get(j).nome, atividade.get(j).data, atividade.get(j).horInicial, atividade.get(j).horFinal, atividade.get(j).lugar});
-
+                dt.addRow(new Object[]{tableObj.getModel().getValueAt(j, 0), tableObj.getModel().getValueAt(j, 1), tableObj.getModel().getValueAt(j, 2), tableObj.getModel().getValueAt(j, 3), tableObj.getModel().getValueAt(j, 4)});
                 dt = (DefaultTableModel) tableObj.getModel();
                 dt.removeRow(j);
                 if (existeLimite == true) {
