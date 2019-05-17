@@ -6,7 +6,7 @@ public interface TADPilhaDinamica {
     
     public boolean isEmpty();
     public int size();
-    public void push(String data, String nome, int tempo, String lugar);
+    public void push(String data, String horInicial, String horFinal, String nome, String lugar);
     public Node pop() throws EmptyStackException;
     public Node top() throws EmptyStackException;
     

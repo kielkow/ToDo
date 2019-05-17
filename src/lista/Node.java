@@ -2,16 +2,18 @@ package lista;
 
 public class Node {
     String data;
+    String horInicial;
+    String horFinal;
     String nome;
-    int tempo;
     String lugar;
     boolean completado;
     Node proximo;
 
-    public Node(String data, String nome, int tempo, String lugar) {
-        this.data = data;
+    public Node(String dataInicio, String horInicial, String horFinal, String nome, String lugar) {
+        this.data = dataInicio;
+        this.horInicial = horInicial;
+        this.horFinal = horFinal;
         this.nome = nome;
-        this.tempo = tempo;
         this.lugar = lugar;
         this.completado = false;
         proximo = null;
