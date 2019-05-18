@@ -23,8 +23,8 @@ public class PilhaDinamica implements TADPilhaDinamica {
     }
 
     @Override
-    public void push(String data, String horInicial, String horFinal, String nome, String lugar) {
-        Node novo = new Node(data, horInicial, horFinal, nome, lugar);
+    public void push(String nome, String data, String horInicial, String horFinal, String lugar) {
+        Node novo = new Node(nome, data, horInicial, horFinal, lugar);
         novo.proximo = topo;
         topo = novo;
         quantidade++;

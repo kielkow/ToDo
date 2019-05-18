@@ -18,7 +18,7 @@ public class Interface extends javax.swing.JFrame {
      * Creates new form Interface
      */
     ListaDinamica atividade = new ListaDinamica();
-    PilhaDinamica pilhad = new PilhaDinamica();
+    PilhaDinamica verLimite = new PilhaDinamica();
     boolean existeLimite = false; //verfica se o usuário criou um limite
     int limite; //determinar numero de atividades limites
     int numAtvComp; //Usada junto ao limite para devolver mensagem ao usuário
@@ -79,6 +79,7 @@ public class Interface extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtHorFinal = new javax.swing.JTextField();
         btnLimite = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -278,6 +279,13 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -287,18 +295,21 @@ public class Interface extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(134, 134, 134)
-                                .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(135, 135, 135)
+                                .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(127, 127, 127)
+                                .addGap(145, 145, 145)
                                 .addComponent(btnCompletar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(132, 132, 132))
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -327,7 +338,7 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(125, 125, 125)
-                    .addComponent(txtData1, javax.swing.GroupLayout.DEFAULT_SIZE, 791, Short.MAX_VALUE)
+                    .addComponent(txtData1, javax.swing.GroupLayout.DEFAULT_SIZE, 807, Short.MAX_VALUE)
                     .addGap(25, 25, 25)))
         );
         layout.setVerticalGroup(
@@ -360,10 +371,16 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(0, 6, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(374, 374, 374)
+                        .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -391,10 +408,10 @@ public class Interface extends javax.swing.JFrame {
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         try {
+            String nome = txtNome.getText();
             String data = txtData.getText();
             String horInicial = txtHorInicial.getText();
             String horFinal = txtHorFinal.getText();
-            String nome = txtNome.getText();
             String lugar = txtLugar.getText();
 
             atividade.add(data, horInicial, horFinal, nome, lugar, i);
@@ -429,18 +446,18 @@ public class Interface extends javax.swing.JFrame {
                 DefaultTableModel dt;
                 dt = (DefaultTableModel) tableComp.getModel();
                 dt.addRow(new Object[]{tableObj.getModel().getValueAt(j, 0), tableObj.getModel().getValueAt(j, 1), tableObj.getModel().getValueAt(j, 2), tableObj.getModel().getValueAt(j, 3), tableObj.getModel().getValueAt(j, 4)});
+                if (existeLimite == true) {
+                    verLimite.push((String) tableObj.getModel().getValueAt(j, 0), (String) tableObj.getModel().getValueAt(j, 1), (String) tableObj.getModel().getValueAt(j, 2), (String) tableObj.getModel().getValueAt(j, 3), (String) tableObj.getModel().getValueAt(j, 4));
+                }
                 dt = (DefaultTableModel) tableObj.getModel();
                 dt.removeRow(j);
-                if (existeLimite == true) {
-                    numAtvComp++;
-                }
             }
         }
         if (existeLimite == true) {
-            if (numAtvComp == limite) {
+            if (verLimite.quantidade == limite) {
                 JOptionPane.showMessageDialog(null, "Parabéns! Voce completou o número de atividades!");
+                existeLimite = false;
             }
-
         }
     }//GEN-LAST:event_btnCompletarActionPerformed
 
@@ -456,6 +473,23 @@ public class Interface extends javax.swing.JFrame {
             System.out.println("Limite nao adicionado");
         }
     }//GEN-LAST:event_btnLimiteActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        for (int j = 0; j < tableObj.getRowCount(); j++) {
+            if (tableObj.isRowSelected(j)) {
+                DefaultTableModel dt;
+                dt = (DefaultTableModel) tableObj.getModel();
+                dt.removeRow(j);
+            }
+        }
+        for (int j = 0; j < tableComp.getRowCount(); j++) {
+            if (tableComp.isRowSelected(j)) {
+                DefaultTableModel dt;
+                dt = (DefaultTableModel) tableComp.getModel();
+                dt.removeRow(j);
+            }
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -507,6 +541,7 @@ public class Interface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnCompletar;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimite;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JColorChooser jColorChooser1;

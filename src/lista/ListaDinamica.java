@@ -21,9 +21,9 @@ public class ListaDinamica implements TADLista {
     }
 
     @Override
-    public void add(String data, String horInicial, String horFinal, String nome, String lugar, int indice) throws IndexOutOfBoundsException {
+    public void add(String nome, String data, String horInicial, String horFinal, String lugar, int indice) throws IndexOutOfBoundsException {
         if (indice >= 0 && indice <= quantidade) {
-            Node novo = new Node(data, horInicial, horFinal, nome, lugar);
+            Node novo = new Node(nome, data, horInicial, horFinal, lugar);
             if (indice == 0) {
                 novo.proximo = inicio;
                 inicio = novo;
@@ -77,22 +77,22 @@ public class ListaDinamica implements TADLista {
     }
 
     @Override
-    public Node set(String data, String horInicial, String horFinal, String nome, String lugar, int indice) throws IndexOutOfBoundsException {
+    public Node set(String nome, String data, String horInicial, String horFinal, String lugar, int indice) throws IndexOutOfBoundsException {
         if (indice >= 0 && indice <= quantidade) {
             Node aux = inicio;
             for (int i = 0; i < indice; i++) {
                 aux = aux.proximo;
             }
+            String retornoNome = aux.nome;
             String retornoData = aux.data;
             String retornoHorInicial = aux.horInicial;
             String retornoHorFinal = aux.horFinal;
-            String retornoNome = aux.nome;
             String retornoLugar = aux.lugar;
 
+            aux.nome = nome;
             aux.data= data;
             aux.horInicial = horInicial;
             aux.horFinal = horFinal;
-            aux.nome = nome;
             aux.lugar = lugar;
             return aux;
         }
@@ -113,10 +113,10 @@ public class ListaDinamica implements TADLista {
 
     public void print(int indice) {
         try {
+            System.out.println(this.get(indice).nome);
             System.out.println(this.get(indice).data);
             System.out.println(this.get(indice).horInicial);
             System.out.println(this.get(indice).horFinal);
-            System.out.println(this.get(indice).nome);
             System.out.println(this.get(indice).lugar);
             System.out.println(this.get(indice).completado);
             
