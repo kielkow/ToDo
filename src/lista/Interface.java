@@ -195,14 +195,14 @@ public class Interface extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Data ", "Horário I", "Horário F", "Tempo", "Lugar"
+                "Nome", "Data ", "Horário I", "Horário F", "Lugar"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -220,14 +220,14 @@ public class Interface extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Data ", "Horário I", "Horário F", "Tempo", "Lugar"
+                "Nome", "Data ", "Horário I", "Horário F", "Lugar"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -456,6 +456,10 @@ public class Interface extends javax.swing.JFrame {
         if (existeLimite == true) {
             if (verLimite.quantidade == limite) {
                 JOptionPane.showMessageDialog(null, "Parabéns! Voce completou o número de atividades!");
+                int cont = verLimite.size();
+                for (int i = 0; i < cont; i++) {
+                    verLimite.pop();
+                }
                 existeLimite = false;
             }
         }
