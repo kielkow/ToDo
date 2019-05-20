@@ -17,13 +17,11 @@ public class Interface extends javax.swing.JFrame {
     /**
      * Creates new form Interface
      */
-    ListaDinamica atividade = new ListaDinamica();
-    PilhaDinamica verLimite = new PilhaDinamica();
-    boolean existeLimite = false; //verfica se o usuário criou um limite
-    int limite; //determinar numero de atividades limites
+    ListaDinamica atividade = new ListaDinamica();  //instancia a lista
+    PilhaDinamica verLimite = new PilhaDinamica();  //instancia a pilha
+    boolean existeLimite = false; //variavel de verificacao de existencia de limite
+    int limite; //variavel usada para armazenar valor de limite
     int numAtvComp; //Usada junto ao limite para devolver mensagem ao usuário
-    public JList listAtividades;
-    public JScrollPane scrollpane;
     int i = 0; //Determina o indice
 
     public Interface() throws ParseException {
@@ -407,6 +405,9 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_txtHorInicialActionPerformed
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
+       //Ao pressionar o botao o sistema pega os valores digitados nos inputs, e adiciona uma 
+       //nova atividade na lista com as caracteristicas fornecidas pelo usuario. Com a atividade
+       //criada ela e adicionada na tabela de Objetivos.
         try {
             String nome = txtNome.getText();
             String data = txtData.getText();
@@ -441,6 +442,10 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLugarActionPerformed
 
     private void btnCompletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletarActionPerformed
+        //O sistema percorre a tabela Objetivos ate achar uma linha selecionda, ao encontrar
+        //ele pega as informacoes daquela atividade selecionada e as usa para criar uma nova 
+        //linha na tabela Completados. Apos isso ela exclui da tabela Objetivos, caso a condicao 
+        //de limite exista o sistema ja passa a contar.
         for (int j = 0; j < tableObj.getRowCount(); j++) {
             if (tableObj.isRowSelected(j)) {
                 DefaultTableModel dt;
@@ -453,6 +458,9 @@ public class Interface extends javax.swing.JFrame {
                 dt.removeRow(j);
             }
         }
+        //Condicao que verifica quando o numero de atividades ja completadas e igual ao numero de
+        //limite, caso seja o sistema avisara o usuario com uma mensagem e possibilitara que o usuario
+        //possa criar um novo limite.
         if (existeLimite == true) {
             if (verLimite.quantidade == limite) {
                 JOptionPane.showMessageDialog(null, "Parabéns! Voce completou o número de atividades!");
@@ -470,6 +478,9 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_txtHorFinalActionPerformed
 
     private void btnLimiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimiteActionPerformed
+        //ao apertar o botao e perguntado ao usuario qual o limite de atividades 
+        //que ele deseja fazer. Ao fornecer um determinado valor a condicao de limite
+        //e o sistema passa a trabalhar com este valor
         try {
             limite = Integer.parseInt(JOptionPane.showInputDialog("Quantas atividades deseja fazer hoje?"));
             existeLimite = true;
@@ -479,6 +490,8 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimiteActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        //ao apertar o botao excluir o sistema percorre as duas tabelas ate encontrar
+        //a linha que esta selecionada e a apaga.
         for (int j = 0; j < tableObj.getRowCount(); j++) {
             if (tableObj.isRowSelected(j)) {
                 DefaultTableModel dt;
