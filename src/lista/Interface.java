@@ -407,7 +407,7 @@ public class Interface extends javax.swing.JFrame {
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
        //Ao pressionar o botao o sistema pega os valores digitados nos inputs, e adiciona uma 
        //nova atividade na lista com as caracteristicas fornecidas pelo usuario. Com a atividade
-       //criada ela e adicionada na tabela de Objetivos.
+       //criada ela é adicionada na tabela de Objetivos.
         try {
             String nome = txtNome.getText();
             String data = txtData.getText();
@@ -458,7 +458,7 @@ public class Interface extends javax.swing.JFrame {
                 dt.removeRow(j);
             }
         }
-        //Condicao que verifica quando o numero de atividades ja completadas e igual ao numero de
+        //Condicao que verifica quando o numero de atividades ja completadas é igual ao numero de
         //limite, caso seja o sistema avisara o usuario com uma mensagem e possibilitara que o usuario
         //possa criar um novo limite.
         if (existeLimite == true) {
@@ -478,9 +478,9 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_txtHorFinalActionPerformed
 
     private void btnLimiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimiteActionPerformed
-        //ao apertar o botao e perguntado ao usuario qual o limite de atividades 
+        //ao apertar o botao é perguntado ao usuario qual o limite de atividades 
         //que ele deseja fazer. Ao fornecer um determinado valor a condicao de limite
-        //e o sistema passa a trabalhar com este valor
+        //é ativada e o sistema passa a trabalhar com este valor.
         try {
             limite = Integer.parseInt(JOptionPane.showInputDialog("Quantas atividades deseja fazer hoje?"));
             existeLimite = true;
